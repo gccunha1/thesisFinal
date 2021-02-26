@@ -15,7 +15,7 @@
 	6. $ yarp connect /icubSim/cam/left /aruco/image/in/exec
 
 # Changing joint selection methods:
-In the file parameters.txt change the option 'crit_name' to AL or random
+	In the file parameters.txt change the option 'crit_name' to AL or random
 
 # To use cost-sensitive methods:
 	In the file parameters.txt, change the value of 'costCoef' (unconstrained version, UCSAL) and 'delta' (constrained version, CCSAL)
@@ -27,6 +27,6 @@ In the file parameters.txt change the option 'crit_name' to AL or random
 	3. In a different terminal type: $ yarp connect /icubSim/cam/left /aruco/image/in/debug
 
 # Common issues:
-a) Sometimes the textures of aruco markers are not loaded and they stay white. It is solved by killing the process and repeating step 5 until the textures are visible
-b) After a few hours iCub_SIM crashes when using markers. It will automatically backup all information. Then just answer 'y' when the backup prompt appears when restarting the program
+	a) Sometimes the textures of aruco markers are not loaded and they stay white. It is solved by killing the process and repeating step 5 until the textures are visible
+	b) After a few hours iCub_SIM crashes when using markers. It will automatically backup all information. Then just answer 'y' when the backup prompt appears when restarting the program
 
