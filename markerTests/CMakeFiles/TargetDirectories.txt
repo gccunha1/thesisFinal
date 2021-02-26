@@ -1,0 +1,3 @@
+/mnt/c/Users/Gonçalo Cunha/Desktop/Tese/thesis/markerTests/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/Gonçalo Cunha/Desktop/Tese/thesis/markerTests/CMakeFiles/main.dir
+/mnt/c/Users/Gonçalo Cunha/Desktop/Tese/thesis/markerTests/CMakeFiles/edit_cache.dir

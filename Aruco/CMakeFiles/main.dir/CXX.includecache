@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/c/Users/Gonçalo Cunha/Desktop/Tese/thesis/Aruco/main.cpp
+opencv2/aruco.hpp
+-
+opencv2/imgcodecs.hpp
+-
+opencv2/aruco/dictionary.hpp
+-
+
