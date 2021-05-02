@@ -161,12 +161,12 @@ using namespace yarp::os;
 //     simCmd.addString("set");
 //     simCmd.addString("mdir");
 
-//     //const ConstString icubRootEnvPath = yarp::os::getenv("ICUB_ROOT");
-//     //const ConstString localModelsPath = "/contrib/src/poeticon/poeticonpp/simobjloader/models";
+//     //const std::string icubRootEnvPath = yarp::os::getenv("ICUB_ROOT");
+//     //const std::string localModelsPath = "/contrib/src/poeticon/poeticonpp/simobjloader/models";
 
-//     const ConstString icubContribEnvPath = yarp::os::getenv("ICUBcontrib_DIR");
-//     const ConstString localModelsPath    = "/share/ICUBcontrib/contexts/simobjloader/models";
-//     const ConstString modelsPath         = icubContribEnvPath + localModelsPath;
+//     const std::string icubContribEnvPath = yarp::os::getenv("ICUBcontrib_DIR");
+//     const std::string localModelsPath    = "/share/ICUBcontrib/contexts/simobjloader/models";
+//     const std::string modelsPath         = icubContribEnvPath + localModelsPath;
 //     simCmd.addString(modelsPath);
 //     writeSim(simCmd);
 
@@ -1249,7 +1249,7 @@ Bottle SimSCyl::dropObjectBottle(iCubArm arm) {
 SimModel::SimModel(
                    double posx,  double posy,  double posz,
                    double rotx,  double roty,  double rotz,
-                   ConstString mes, ConstString tex) {
+                   std::string mes, std::string tex) {
 
     
 
@@ -1364,7 +1364,7 @@ Bottle SimModel::dropObjectBottle(iCubArm arm) {
 SimSModel::SimSModel(
                      double posx,  double posy,  double posz,
                      double rotx,  double roty,  double rotz,
-                     ConstString mes, ConstString tex) {
+                     std::string mes, std::string tex) {
 
     
 
@@ -1480,7 +1480,7 @@ Bottle SimSModel::dropObjectBottle(iCubArm arm) {
 
 SimSMarker::SimSMarker(double posx,  double posy,  double posz,
               double rotx,  double roty,  double rotz,
-              ConstString mes, ConstString tex, std::string type, double offset) : SimSModel(posx, posy, posz,
+              std::string mes, std::string tex, std::string type, double offset) : SimSModel(posx, posy, posz,
              rotx, roty, rotz, mes, tex) {
     if(type == "front") {
         markerPose.setIdentity();

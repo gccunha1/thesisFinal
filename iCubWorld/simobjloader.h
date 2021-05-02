@@ -177,13 +177,13 @@ public:
 
 class SimModel: public SimObject {
 private:
-    ConstString mesh;
-    ConstString texture;
+    std::string mesh;
+    std::string texture;
 
 public:
     SimModel(double posx,  double posy,  double posz,
              double rotx,  double roty,  double rotz,
-             ConstString mes, ConstString tex);
+             std::string mes, std::string tex);
     virtual Bottle   makeObjectBottle(vector<int>& ind, bool collision = true);
     virtual Bottle deleteObject();
     virtual Bottle   moveObjectBottle();
@@ -194,13 +194,13 @@ public:
 
 class SimSModel: public SimObject {
 private:
-    ConstString mesh;
-    ConstString texture;
+    std::string mesh;
+    std::string texture;
 
 public:
     SimSModel( double posx,  double posy,  double posz,
               double rotx,  double roty,  double rotz,
-              ConstString mes, ConstString tex);
+              std::string mes, std::string tex);
     virtual Bottle   makeObjectBottle(vector<int>& ind, bool collision = true);
     virtual Bottle deleteObject();
     virtual Bottle   moveObjectBottle();
@@ -215,7 +215,7 @@ private:
 public:
     SimSMarker(double posx,  double posy,  double posz,
               double rotx,  double roty,  double rotz,
-              ConstString mes, ConstString tex, std::string type, double offset);
+              std::string mes, std::string tex, std::string type, double offset);
     Eigen::Matrix4d getPose();
 };
 

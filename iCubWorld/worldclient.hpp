@@ -23,7 +23,7 @@ class YarpClient {
 public:
 	YarpClient(std::string clientName, std::string serverName){
 		port.open(clientName);
-		printf("Trying to connect to %s\n", serverName);
+		std::cout << "Trying to connect to " << serverName << std::endl;
 	    yarp::os::Network::connect(clientName, serverName);
 
 	}
@@ -44,7 +44,7 @@ public:
 		port.open("/client");
 
 		if (port.getOutputCount()==0) {
-            printf("Trying to connect to %s\n", "/icubSim/world");
+			std::cout << "Trying to connect to /icubSim/world" << std::endl;
             yarp.connect("/client", "/icubSim/world");
         }
 
