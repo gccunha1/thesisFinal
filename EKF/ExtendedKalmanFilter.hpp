@@ -38,10 +38,6 @@ class ExtendedKalmanFilterBodySchema {
 			this->pMatrix *= this->pMatrixCoef1;
 			this->pMatrixDest.setIdentity();
 			this->pMatrixDest /= this->stateDimensions;
-			/*for (int i = 0; i < this->nJoints; ++i)	{
-				this->pMatrix(4*i+2, 4*i+2) = this->pMatrixCoef2;
-				this->pMatrix(4*i+3, 4*i+3) = this->pMatrixCoef2;
-			}*/
 			this->hMatrix.setZero();
 			this->kalmanGain.setZero();
 			this->arm = new GenericRightArm(this->getState());
