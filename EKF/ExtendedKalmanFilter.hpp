@@ -15,9 +15,10 @@ class ExtendedKalmanFilterBodySchema {
 	public:
 		ExtendedKalmanFilterBodySchema() {
 			if(!readFileParameters()) {
+				std::cout << "[EKF] Error: Didn't read parameters." << std::endl;
 				return;
 			}
-			
+			randomizeStateZero();
 			this->joints.resize(this->nJoints);
 
 			this->pMatrix.resize(this->stateDimensions, this->stateDimensions);
@@ -79,6 +80,7 @@ class ExtendedKalmanFilterBodySchema {
 
 		void reset() {
 			readFileParameters();
+			randomizeStateZero();
 			this->rMatrix.setIdentity();
 			this->rMatrix *= rMatrixCoef;
 
@@ -286,6 +288,19 @@ class ExtendedKalmanFilterBodySchema {
 		Eigen::MatrixXd kalmanGain;
 		GenericRightArm *arm = NULL;
 		
+		void randomizeStateZero() {
+			double maxVal = 0;
+			for(int i = 0; i < state.size(); i++) {
+				if(std::abs(state[i]) > maxVal) {
+					maxVal = std::abs(state[i]);
+				}
+			}
+
+			for(int i = 0; i < state.size(); i++) {
+				state[i] += randomValueUniDistr(-maxVal * PARAMERROR, maxVal * PARAMERROR);
+			}
+		}
+
 		Eigen::VectorXd h(Eigen::VectorXd jointValues, bool predict = false) {
 			int i;
 			Eigen::Matrix4d T;
@@ -374,7 +389,7 @@ class ExtendedKalmanFilterBodySchema {
 			size_t pos = 0;
 			int i;
 
-			myfile.open("parameters.txt");
+			myfile.open("../parameters.txt");
 			
 			if(!myfile.is_open()) {
 				return false;
@@ -386,7 +401,7 @@ class ExtendedKalmanFilterBodySchema {
 				}
 				id = line.substr(0, pos);
 				value = line.substr(pos + delimiter.length(), line.length());
-				std::cout << id << std::endl;
+				//std::cout << id << std::endl;
 				if (id == "joints") {
 					this->nJoints = std::stoi(value);
 					this->stateDimensions = 4*this->nJoints;
@@ -401,12 +416,12 @@ class ExtendedKalmanFilterBodySchema {
 					i = 0;
 					while ((pos = value.find(comma)) != std::string::npos) {
 					    token = value.substr(0, pos);
-					    this->state[i] = std::stod(token) + randomValueUniDistr(-PARAMERROR*std::stod(token), PARAMERROR*std::stod(token));
+					    this->state[i] = std::stod(token);
 					    value.erase(0, pos + comma.length());
 						i++;
 					}
 					token = value.substr(0, pos);
-					this->state[i] = std::stod(token) + randomValueUniDistr(-PARAMERROR*std::stod(token), PARAMERROR*std::stod(token));
+					this->state[i] = std::stod(token);
 				} 
 			}
 
