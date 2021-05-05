@@ -13,11 +13,6 @@ ArucoDetector::ArucoDetector(bool debugFlag) {
 
 	cameraMatrix = cv::Mat::zeros(3,3,CV_64F);
 	distCoeffs = cv::Mat::zeros(1,4,CV_64F);
-	//cameraMatrix.at<double>(0,0) = 257.34;
-	//cameraMatrix.at<double>(1,1) = 257.34;
-	//cameraMatrix.at<double>(2,2) = 1;
-	//cameraMatrix.at<double>(0,2) = 160;
-	//cameraMatrix.at<double>(1,2) = 120;
     cameraMatrix.at<double>(0,0) = 514.681;
     cameraMatrix.at<double>(1,1) = 514.681;
     cameraMatrix.at<double>(2,2) = 1;
@@ -25,12 +20,6 @@ ArucoDetector::ArucoDetector(bool debugFlag) {
     cameraMatrix.at<double>(1,2) = 240.0;
 
 	dp = cv::aruco::DetectorParameters::create();
-	//dp->minDistanceToBorder = 3;
-	//dp->adaptiveThreshWinSizeMin = 0;
-	//dp->adaptiveThreshWinSizeMax = 300;
-	//dp->maxMarkerPerimeterRate = 20;
-	//dp->adaptiveThreshWinSizeStep = 100;
-	//dp->adaptiveThreshConstant = 7;
 }
 
 bool ArucoDetector::getPose(Eigen::Matrix4d &T, int &id) {
@@ -40,8 +29,7 @@ bool ArucoDetector::getPose(Eigen::Matrix4d &T, int &id) {
     Eigen::Matrix3d rotMat;
 
     if (image!=NULL) { // check we actually got something
-		printf("We got an image of size %dx%d\n", image->width(), image->height());
-		//file::write(*image, "test.jpg", file::FORMAT_JPG);
+		printf("We got an image of size %dx%d\n", (int) image->width(), (int) image->height());
     } else {
     	printf("Image not found. Check connection with imagePort.\n");
     	return false;
