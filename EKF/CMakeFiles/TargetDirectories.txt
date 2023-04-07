@@ -1,3 +1,0 @@
-/mnt/c/Users/info/Desktop/IST/Tese/StartProjects/iCubBayesOpt/EKF/CMakeFiles/rebuild_cache.dir
-/mnt/c/Users/info/Desktop/IST/Tese/StartProjects/iCubBayesOpt/EKF/CMakeFiles/hello.dir
-/mnt/c/Users/info/Desktop/IST/Tese/StartProjects/iCubBayesOpt/EKF/CMakeFiles/edit_cache.dir

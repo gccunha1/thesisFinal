@@ -1,3 +1,0 @@
-/mnt/c/Users/Gonçalo Cunha/Desktop/Tese/thesis/Aruco/readingImage/build/CMakeFiles/rebuild_cache.dir
-/mnt/c/Users/Gonçalo Cunha/Desktop/Tese/thesis/Aruco/readingImage/build/CMakeFiles/main.dir
-/mnt/c/Users/Gonçalo Cunha/Desktop/Tese/thesis/Aruco/readingImage/build/CMakeFiles/edit_cache.dir
